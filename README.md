@@ -9,3 +9,6 @@ By defualt the highest value a C++ program can hold or operate with is an unsign
 This program (soon to be library) can do math on numbers with exponentionally higher values. You can do math with values of say 18 x 10^1000 OR FAR GREATER NUMBERS.
 
 This version can add, subtract, multiply, divide, and modulo (mod). All of these operations can be applied with integers or other UltraNumbers.
+
+Limitations:
+As of now, UltraNumber does not work with negative or decimal values.
