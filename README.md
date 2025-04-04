@@ -1,4 +1,7 @@
 # UltraNumber-MVP
+
+WARNING: This code is experimental and meant for my own personal use. There are very few safeguards in place. Use with caution. 
+
 A C++ library that will allow a user to work with exceptionally long numbers, which would normally be limited by the constraints of their data types.
 The length of the UltraNumbers are only limited by your computers memory.
 
