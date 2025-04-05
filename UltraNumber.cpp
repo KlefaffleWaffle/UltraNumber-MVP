@@ -67,8 +67,8 @@ public:
         //cout << "Ultra Number Created!\n";
         parseInput(s);
         //cout << "Vector size = " << fullNumber.size() << endl;;
-        cout << "initial number is: " << fullNumber.at(0) << endl;
-        cout << "\t(Note: This is not the full ultra Number)" << endl;
+        //cout << "initial number is: " << fullNumber.at(0) << endl;
+        //cout << "\t(Note: This is not the full ultra Number)" << endl;
     }
     UltraNumber(vector<int> v) {
         //cout << "Ultra Number Created!";
@@ -129,10 +129,9 @@ int grabDigitUN(UltraNumber mainNumber, int posL2R);
 void displayVector(vector<int>);
 int main()
 {
-    std::cout << "WARNING: This code is experimental and meant for my own personal use. There are very few safeguards in place. Use with caution.  \n";
+    std::cout << "WARNING: This code is experimental and meant for my own personal use. There are very few safeguards in place. Use with caution.  \n\n";
 
-    cout << "Maximum value for long: " << LLONG_MAX << std::endl;
-   // cout << "Creating Ultra Number\n\n";
+  
 
     std::cout << "Please input a big number (do not use commas) " << endl;
     string str = "";
@@ -144,7 +143,7 @@ int main()
     //int test = 999999999;
     UltraNumber UN(str);
 
-    UN.displayValue();
+    //UN.displayValue();
 
     //UltraNumber UN2("5");
     UN.generateMultiples();
@@ -154,7 +153,7 @@ int main()
 
     int z =-27;
 
-    cout << UN.getNumOfDigits() << endl;
+    //cout << UN.getNumOfDigits() << endl;
     
     cin >> str;
 
@@ -162,7 +161,7 @@ int main()
 
     //int r = grabDigitUN(UN, z);
     //cout << r << endl;
-    UN.divide(UN2, true);
+    UN.divide(UN2);
 
     //UN2.displayValue();
 
@@ -314,7 +313,7 @@ void UltraNumber::parseInput(string s) {
     //string of largest set of 9
     string biggest = s.substr(0, lengthVar);
 
-    cout << "ParseInput: obtained biggest number" << endl;;
+    //cout << "ParseInput: obtained biggest number" << endl;;
 
     int i = 0;
     int counter = 0;
@@ -322,7 +321,7 @@ void UltraNumber::parseInput(string s) {
     //I believe I use this later. Don't worry about it. Don't delete it.
     std::string::size_type pos;
 
-    cout << "ParseInput: pos created" << endl;;
+   // cout << "ParseInput: pos created" << endl;;
     
     /*
         try
@@ -367,13 +366,13 @@ void UltraNumber::parseInput(string s) {
             // if there are at least a full 9 digits left
             if (i + 9 <= s.size() - 1) {
                 string s2 = s.substr(i, 9);
-                cout << "substring s2 = " << s2 << endl;
+                //cout << "substring s2 = " << s2 << endl;
                 vS.push_back(s2);
-                cout << "counter: " << vS.at(counter) << endl;
+                //cout << "counter: " << vS.at(counter) << endl;
                 counter++;
             }else {
                 string s2 = s.substr(i, 9);
-                cout << "substring s2 = " << s2 << endl;
+                //cout << "substring s2 = " << s2 << endl;
                 vS.push_back(s2);
             }
             iterator++;
@@ -386,13 +385,13 @@ void UltraNumber::parseInput(string s) {
     //vS.at(0) = "27";
     //vS.at(0) = "-27";
     //vS.at(0) = "9876543210";
-    cout << "ParseInput: obtained all substrings" << endl;;
+    //cout << "ParseInput: obtained all substrings" << endl;;
 
 
 
-    cout << "ParseInput: vS.size = " << vS.size() << endl;;
+    //cout << "ParseInput: vS.size = " << vS.size() << endl;;
     for (int i = 0; i < vS.size(); i++) {
-        cout << vS.at(i) << ": is the value of vs at " <<i<<"\n";
+       // cout << vS.at(i) << ": is the value of vs at " <<i<<"\n";
     }
     
     /*
@@ -419,9 +418,9 @@ void UltraNumber::parseInput(string s) {
 
     
 
-    std::cout << "ParseInput: stoi success" << endl;;
+    //std::cout << "ParseInput: stoi success" << endl;;
 
-    std::cout << "ParseInput: added first set of string as int" << endl;;
+    //std::cout << "ParseInput: added first set of string as int" << endl;;
 
     
     //if (vS.size() - 2 >= 0) {
@@ -658,12 +657,12 @@ void UltraNumber::add(UltraNumber UN2) {
              return true;
          }
          else if(expectedSmall.fullNumber.at(0) == large.fullNumber.at(0)) {
-             cout << "Returned, true with the following numbers ";
-             cout << endl << endl << endl;
+             //cout << "Returned, true with the following numbers ";
+             //cout << endl << endl << endl;
 
-             expectedSmall.displayValue();
-             large.displayValue();
-             cout << endl;
+             //expectedSmall.displayValue();
+             //large.displayValue();
+             //cout << endl;
              int i = 1;
              while (i < expectedSmall.fullNumber.size()) {
                  if (expectedSmall.fullNumber.at(i) < large.fullNumber.at(i)) {
@@ -740,15 +739,15 @@ void UltraNumber::add(UltraNumber UN2) {
      bool mightBeNegative = false;
      //NO additional comparators b/c sub fullNumber can only be size of one, b/c int NOT UN.
      if (this->fullNumber.size() == 1) {
-         cout << "We are entering subtract (int). Bigger num is = ";
-         this->displayValue();
-         cout << endl;
+         //cout << "We are entering subtract (int). Bigger num is = ";
+         //this->displayValue();
+         //cout << endl;
 
          this->fullNumber.at(0) -= subtrahend;
 
-         cout << "We are leaving subtract (int). Bigger num is = ";
-         this->displayValue();
-         cout << endl;
+         //cout << "We are leaving subtract (int). Bigger num is = ";
+         //this->displayValue();
+         //cout << endl;
          return;
      }
 
@@ -795,21 +794,21 @@ void UltraNumber::add(UltraNumber UN2) {
         
          //take the number, and subtract the lowest subtrahend value.
          copyMain.subtract(subtrahend.fullNumber.at(i));
-         cout << "In loop\n";
+         //cout << "In loop\n";
          //takes the value at lowest part and puts it into copymain.
          toBuild.push_back(copyMain.fullNumber.at(copyMain.fullNumber.size() - 1));
          copyMain.fullNumber.pop_back();
          
      }
-     cout << "Completed for loop\n";
+     //cout << "Completed for loop\n";
 
      for (int i = toBuild.size() - 1; i >= 0 ; i--) {
          copyMain.fullNumber.push_back(toBuild.at(i));
      }
 
-     cout << "copyMain = ";
-     copyMain.displayValue();
-     cout << endl;
+     //cout << "copyMain = ";
+     //copyMain.displayValue();
+     //cout << endl;
 
      *this = copyMain;
      cleanUp();
@@ -895,19 +894,6 @@ void UltraNumber::add(UltraNumber UN2) {
 
  void UltraNumber::divide(UltraNumber divisor, bool mod) {
 
-     //vector<UltraNumber> vUn;
-     //UltraNumber holder = *this;
-
-     //I think this was an early test of breaking a problem into smaller parts. COmmenting out for now.
-     /*
-     for (int i = 0; i < divisor.fullNumber.size(); i++) {
-         holder.divide(divisor.fullNumber.at(i));
-         int r = ((holder.fullNumber.size() - 1) - i) * 9;
-         
-         //shouldn't this be negative?
-         holder.shift(r);
-     }
-     */
 
     
 
@@ -915,81 +901,71 @@ void UltraNumber::add(UltraNumber UN2) {
         //Doesn't necessarily solve our issue, but what we can do is flip, ^-1, break apart numberator, then divide;
         Let's try this again. -> may work granted, we would have to get decimals figured out first.
 
-        make list of multiples.
-        first getDifference() -> we do a function to determine the order of magnitude of difference. Maybe do a check just to make sure it's not too small or too big.
-            May be overly complicated
-
-        Just grab first digit - 0
-            Note: account for <000017>
-
-        then we check what multiple of divisor is biggest without being bigger
-        subtract
-        add next digit to end of difference then we repeat.
-
      */
      UltraNumber un0(0);
      if (divisor.equalTo(divisor,un0)) {
-         cout << "Divide by zero error" << endl;
+         cout << "Divide by zero error. Please Try Again" << endl;
          return;
      }
 
      //Set Multiples of UltraNumber beforeDividing
      divisor.generateMultiples();
-     cout << "divisor has generated multiples" <<endl;;
-     //initialize new UltraNumber smallDivide at 0;
+     
      //small divide is the number that we are subtracting from (right?)
      UltraNumber smallDivide(0);
      UltraNumber quotient(0);
-     cout << "small divide has been created" << endl;;
+     //cout << "small divide has been created" << endl;;
 
      int posL2R = 0;
 
-     cout << "About to enter while loop" << endl;;
+     //cout << "About to enter while loop" << endl;;
+     // 
      //for the following line, we'd have to calculate total digits.
+     //We could optimize by not running function every time.
      while (posL2R < this->getNumOfDigits()) {
 
 
          //grab digit of dividend and add2End UltraNumber smallDivide.
 
-         cout << "posL2R = " << posL2R << endl;;
+         //cout << "posL2R = " << posL2R << endl;;
          int toAdd2SmallDivide = grabDigitUN(*this, posL2R);
-         cout << "toAdd2SmallDivide = " << toAdd2SmallDivide << endl;;
+         //cout << "toAdd2SmallDivide = " << toAdd2SmallDivide << endl;;
 
 
 
 
-         //I don't remember what smallDivide was. Right Right Right, small divide was dividing the current digit, by the divisor.
+         //I don't remember what smallDivide was. Right Right Right, small divide was dividing the current digit, by the divisor. mmmm see about 23 lines ago. 
          smallDivide.add2End(smallDivide.fullNumber, toAdd2SmallDivide);
-         cout << "SmallDivide = ";
-         smallDivide.displayValue();
-         cout << endl;
+         //cout << "SmallDivide = ";
+         //smallDivide.displayValue();
+         //cout << endl;
          // 
          // find closest multiple to small divide without going over.
          //         We'll optimize this later.
          int toAdd2Quotient = divisor.getBestMultiple(smallDivide);
-         cout << "toAdd2Quotient = " << toAdd2Quotient << endl;;
+         //cout << "toAdd2Quotient = " << toAdd2Quotient << endl;;
          // 
          // subtract multiple from smallNumber
          UltraNumber temp(divisor.multiples.at(toAdd2Quotient));
-         cout << "temp = ";
-         temp.displayValue();
-         cout << endl;
+         //cout << "temp = ";
+         //temp.displayValue();
+         //cout << endl;
 
          quotient.add2End(quotient.fullNumber, toAdd2Quotient);
 
-         cout << "quotient = ";
-         quotient.displayValue();
-         cout << endl;
+         //cout << "quotient = ";
+         //quotient.displayValue();
+         //cout << endl;
 
-         cout << "----- about to subtract here" << endl;
+         //cout << "----- about to subtract here" << endl;
          //small divide may be the issue, no no no, that's not the issue, temp is wrong value. temp should be 0 (in the test of 3333/3 = 0001
          smallDivide.subtract(temp);
 
-         cout << "smallDivide = ";
-         smallDivide.displayValue();
-         cout << endl;
+         //cout << "smallDivide = ";
+         //smallDivide.displayValue();
+         //cout << endl;
 
-         cout << endl << endl << endl;
+         //cout << endl << endl << endl;
 
          posL2R++;
          // 
@@ -1034,13 +1010,14 @@ void UltraNumber::add(UltraNumber UN2) {
          UNOriginal = *this;
      }
 
-     
+     /*
      cout << "AJD Test: making sure multiples are accurate\n";
      for (int i = 0; i < 11; i++) {
          displayVector(multiples.at(i));
          cout << endl;
      }
-     
+     */
+
  }
  
  void displayVector(vector<int> v) {
@@ -1165,7 +1142,9 @@ void UltraNumber::add(UltraNumber UN2) {
  
  */
  vector<int> UltraNumber::add2End(vector<int>& begin, int end) {
-     cout << "AJD QC: Make sure end is a single digit. Otherwise we need to use shift or something.\n";
+     
+     //cout << "AJD QC: Make sure end is a single digit. Otherwise we need to use shift or something.\n";
+     
      UltraNumber newUN(begin);
      newUN.multiply(10);
      newUN.add(end);
@@ -1184,6 +1163,7 @@ void UltraNumber::add(UltraNumber UN2) {
  }
 
  int grabDigitInt(int mainNumber, int posL2R) {
+
      cout << "Note, this is a test function. It only works with integers, not UltraNumbers.\n";
      cout << "Note, this function counts in human language. if your number is 123456, the third digit is '3'.\n";
 
@@ -1196,7 +1176,7 @@ void UltraNumber::add(UltraNumber UN2) {
  }
 
  int grabDigitUN(UltraNumber mainNumber, int posL2R) {
-     cout << "Note, this function counts in computer language. if your number is 123456, the third digit is '4'.\n";
+     //cout << "Note, this function counts in computer language. if your number is 123456, the third digit is '4'.\n";
      vector<string> vs = { "" };
 
      string s;
@@ -1248,7 +1228,7 @@ void UltraNumber::add(UltraNumber UN2) {
      int i = 0;
      
      while (true) {
-         cout << "We are in while loop of getBestMultiple. i = " << i << endl;
+         //cout << "We are in while loop of getBestMultiple. i = " << i << endl;
          UltraNumber UN2(this->multiples.at(i));
         
          if (lessThanComparison(UN2, greaterUltra)) {
